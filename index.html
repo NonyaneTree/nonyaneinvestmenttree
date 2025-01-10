@@ -1,24 +1,121 @@
 <!DOCTYPE html>
-
-<html>
-
-<img src="nonyane.jpg"style="width;300px;height:100px">
-<head><meta charset="utf-8">
-<meta name=viewport" content="width=device-width, initial-scale=1">
-<tittle>Home</tittle>
-<h1>Nonyane Investment Tree</h1>
- 
+<html lang="en">
 <head>
-
-<body style="background-color:gray;">Offers the best investment options in Africa the company offers high,medium and short term
-investment options from low,medium and high risk<h5>Short Term Investment</h5>Our short term range offer high,medium and low 
-risk our short term portfolio include Crypto currency, ETF`s, Retail saving bonds and mutual funds this range start from 6months to 2 years
-<h5>Medium Term Investment</h5> We offer a veraity of options to invest such as Crypto currency,Stock,ETF`s,Retail savings Bond and mutual funds
-this range start from 1 year to 4years.<h5>Long Term Investment</h5> Our Long Term offer wide range options with different risk. We invest in Mutual funds,
-Shares,ETF,Real Estate and Retail Savings Bond this renge take 5-15 years<h5>Why Invest With us</h5> We are the best in Africa one of few company to hold
-all the top equity investment savices offering our cliets a veriety of options to choose from. Our team are highly trained.
-
+  <meta charset="UTF-8">
+  <title>TikTok Video Viewer with Location Simulation</title>
+  <meta name="tiktok-site-verification" content="oqeJHkAVmgRoQk8skDpJB7eZ12gbrOt0">
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      margin: 20px;
+    }
+    #controls {
+      margin-bottom: 20px;
+    }
+    #video-container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 10px;
+    }
+    .video-wrapper {
+      width: 300px;
+      height: 500px;
+      border: 1px solid #ccc;
+    }
+    #location-display {
+      margin-top: 20px;
+      font-size: 1.2em;
+    }
+  </style>
+</head>
 <body>
+  <h1>TikTok Video Viewer with Location Simulation</h1>
+  <div id="controls">
+    <button onclick="decreaseVideos()">-</button>
+    <span id="video-count">1</span>
+    <button onclick="increaseVideos()">+</button>
+  </div>
+  <div>
+    <label for="region-select">Simulate Viewer Location:</label>
+    <select id="region-select" onchange="simulateLocation()">
+      <option value="">Select Region</option>
+      <option value="us">United States</option>
+      <option value="china">China</option>
+      <option value="europe">Europe</option>
+      <option value="uk">United Kingdom</option>
+    </select>
+  </div>
+  <div id="video-container">
+    <!-- Video instances will be added here -->
+  </div>
+  <div id="location-display">
+    <!-- User's location will be displayed here -->
+  </div>
 
-<html>
+  <script>
+    const videoContainer = document.getElementById('video-container');
+    const videoCountDisplay = document.getElementById('video-count');
+    const locationDisplay = document.getElementById('location-display');
+    let videoCount = 1;
+    const maxVideos = 500;
+    const tiktokVideoId = 'your_tiktok_video_id'; // Replace with your TikTok video ID
 
+    function updateVideoDisplay() {
+      videoContainer.innerHTML = '';
+      for (let i = 0; i < videoCount; i++) {
+        const videoWrapper = document.createElement('div');
+        videoWrapper.className = 'video-wrapper';
+        videoWrapper.innerHTML = `
+          <iframe src="https://www.tiktok.com/embed/${tiktokVideoId}" width="100%" height="100%" allow="autoplay"></iframe>
+        `;
+        videoContainer.appendChild(videoWrapper);
+      }
+      videoCountDisplay.textContent = videoCount;
+    }
+
+    function increaseVideos() {
+      if (videoCount < maxVideos) {
+        videoCount++;
+        updateVideoDisplay();
+      }
+    }
+
+    function decreaseVideos() {
+      if (videoCount > 1) {
+        videoCount--;
+        updateVideoDisplay();
+      }
+    }
+
+    function simulateLocation() {
+      const regionSelect = document.getElementById('region-select');
+      const region = regionSelect.value;
+      let locationInfo = '';
+
+      switch (region) {
+        case 'us':
+          locationInfo = 'Simulated Location: United States';
+          break;
+        case 'china':
+          locationInfo = 'Simulated Location: China';
+          break;
+        case 'europe':
+          locationInfo = 'Simulated Location: Europe';
+          break;
+        case 'uk':
+          locationInfo = 'Simulated Location: United Kingdom';
+          break;
+        default:
+          locationInfo = '';
+      }
+
+      locationDisplay.textContent = locationInfo;
+    }
+
+    // Initialize the display
+    updateVideoDisplay();
+  </script>
+</body>
+</html>
